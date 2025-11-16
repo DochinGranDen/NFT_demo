@@ -316,3 +316,387 @@
             <div class="md:hidden">
                 <button class="text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 英雄區 (Hero) -->
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <!-- 數位雨背景 -->
+            <canvas id="matrix-canvas"></canvas>
+            
+            <!-- 內容 (帶視差效果) -->
+            <div id="hero-content" class="relative z-10 p-6 flex flex-col items-center">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-orbitron font-extrabold mb-6">
+                    <span class="glitch" data-text="數據">數據</span>是新的塗鴉。
+                </h1>
+                <p class="text-2xl md:text-4xl font-orbitron font-bold neon-text-pink mb-12">擁有它。</p>
+                <a href="#market" class="industrial-button text-lg">[ 進入黑市 ]</a>
+            </div>
+        </section>
+
+        <!-- 特色掉落 (Featured Drops) -->
+        <section id="featured" class="py-24 bg-black bg-opacity-30">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-orbitron font-bold mb-3 neon-text-pink">最新掉落</h2>
+                <p class="text-lg text-gray-400 mb-12">來自 K7 區最深處的獨家數據片段。</p>
+
+                <!-- 水平滾動數據流 -->
+                <div class="flex overflow-x-auto space-x-6 pb-6 data-stream">
+                    <!-- NFT 卡片 範例 -->
+                    <div class="nft-card rounded-lg overflow-hidden flex-shrink-0 w-72 md:w-80">
+                        <img src="https://placehold.co/300x400/0A192F/F000FF?text=DATA-FRAG-01" alt="NFT 藝術品" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold font-orbitron">«神經漫遊者»</h3>
+                            <p class="text-sm text-cyan-400">@cypher_punk</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <div>
+                                    <span class="text-xs text-gray-400">目前出價</span>
+                                    <p class="text-lg font-bold">1.5 ETH</p>
+                                </div>
+                                <button class="text-sm border border-pink-500 px-4 py-2 rounded hover:bg-pink-500 hover:text-black transition-colors">出價</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NFT 卡片 範例 -->
+                    <div class="nft-card rounded-lg overflow-hidden flex-shrink-0 w-72 md:w-80">
+                        <img src="https://placehold.co/300x400/0A192F/00FFFF?text=AVATAR-K7" alt="NFT 藝術品" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold font-orbitron">«K7 浪人化身»</h3>
+                            <p class="text-sm text-cyan-400">@neo_glitch</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <div>
+                                    <span class="text-xs text-gray-400">目前出價</span>
+                                    <p class="text-lg font-bold">2.2 ETH</p>
+                                </div>
+                                <button class="text-sm border border-pink-500 px-4 py-2 rounded hover:bg-pink-500 hover:text-black transition-colors">出價</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NFT 卡片 範例 -->
+                    <div class="nft-card rounded-lg overflow-hidden flex-shrink-0 w-72 md:w-80">
+                        <img src="https://placehold.co/300x400/0A192F/CFFF00?text=GEAR-003" alt="NFT 藝術品" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold font-orbitron">«電漿步槍»</h3>
+                            <p class="text-sm text-cyan-400">@mech_head</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <div>
+                                    <span class="text-xs text-gray-400">目前出價</span>
+                                    <p class="text-lg font-bold">0.8 ETH</p>
+                                </div>
+                                <button class="text-sm border border-pink-500 px-4 py-2 rounded hover:bg-pink-500 hover:text-black transition-colors">出價</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NFT 卡片 範例 -->
+                    <div class="nft-card rounded-lg overflow-hidden flex-shrink-0 w-72 md:w-80">
+                        <img src="https://placehold.co/300x400/0A192F/FFD300?text=VEHICLE-X" alt="NFT 藝術品" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold font-orbitron">«夜城 'Racer'»</h3>
+                            <p class="text-sm text-cyan-400">@speed_demon</p>
+                            <div class="mt-4 flex justify-between items-center">
+                                <div>
+                                    <span class="text-xs text-gray-400">目前出價</span>
+                                    <p class="text-lg font-bold">3.1 ETH</p>
+                                </div>
+                                <button class="text-sm border border-pink-500 px-4 py-2 rounded hover:bg-pink-500 hover:text-black transition-colors">出價</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 主要市場 (The Grid) -->
+        <section id="market" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-orbitron font-bold mb-3 neon-text-cyan">K7 黑市</h2>
+                <p class="text-lg text-gray-400 mb-12">尋找你的下一個數位資產。</p>
+
+                <!-- 篩選器 (簡化版) -->
+                <div class="flex flex-wrap gap-4 mb-12">
+                    <button class="industrial-button text-sm px-6 py-2 bg-cyan-500 text-black border-cyan-500">[ 全部 ]</button>
+                    <button class="industrial-button text-sm px-6 py-2">[ 化身 ]</button>
+                    <button class="industrial-button text-sm px-6 py-2">[ 裝備 ]</button>
+                    <button class="industrial-button text-sm px-6 py-2">[ 數據片段 ]</button>
+                </div>
+
+                <!-- 瀑布流 (Grid) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- 範例 NFT - 應由 JS 動態載入 -->
+                    <div class="nft-card rounded-lg overflow-hidden">
+                        <img src="https://placehold.co/300x300/1D1D1D/00FFFF?text=GRID-01" alt="NFT 藝術品" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold font-orbitron">«全息眼»</h3>
+                            <p class="text-sm text-cyan-400">@vision</p>
+                            <div class="mt-4">
+                                <p class="text-lg font-bold">1.0 ETH</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nft-card rounded-lg overflow-hidden">
+                        <img src="https://placehold.co/300x300/1D1D1D/F000FF?text=GRID-02" alt="NFT 藝術品" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold font-orbitron">«都市迷霧»</h3>
+                            <p class="text-sm text-cyan-400">@smokey</p>
+                            <div class="mt-4">
+                                <p class="text-lg font-bold">0.5 ETH</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nft-card rounded-lg overflow-hidden">
+                        <img src="https://placehold.co/300x300/1D1D1D/CFFF00?text=GRID-03" alt="NFT 藝術品" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold font-orbitron">«酸雨»</h3>
+                            <p class="text-sm text-cyan-400">@acid_art</p>
+                            <div class="mt-4">
+                                <p class="text-lg font-bold">2.1 ETH</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nft-card rounded-lg overflow-hidden">
+                        <img src="https://placehold.co/300x300/1D1D1D/FFD300?text=GRID-04" alt="NFT 藝術品" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold font-orbitron">«警告: 駭入»</h3>
+                            <p class="text-sm text-cyan-400">@system</p>
+                            <div class="mt-4">
+                                <p class="text-lg font-bold">1.2 ETH</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 更多卡片... -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 藝術家專區 (The Crew) -->
+        <section id="crew" class="py-24 bg-black bg-opacity-30">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-orbitron font-bold mb-3" style="color: #CFFF00; text-shadow: 0 0 10px #CFFF00;">[ THE CREW ]</h2>
+                <p class="text-lg text-gray-400 mb-12">隱藏在防火牆後的數據駭客（藝術家）。</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 藝術家卡片 (通緝令風格) -->
+                    <div class="artist-card text-center p-6 rounded-lg" 
+                         data-name="Cypher_Punk"
+                         data-img="https://placehold.co/300x300/0A192F/CFFF00?text=Cypher"
+                         data-bio="Cypher_Punk 是一位匿名的街頭藝術家，專門將原始的都市頹敗轉化為令人不安的數位現實。他的作品質疑著「真實」的定義。">
+                        <img src="https://placehold.co/150x150/0A192F/CFFF00?text=Cypher" class="rounded-full w-36 h-36 mx-auto mb-4 border-4 border-gray-700">
+                        <h3 class="text-2xl font-bold font-orbitron">Cypher_Punk</h3>
+                        <p class="text-sm text-gray-400">[ 數據塗鴉師 ]</p>
+                    </div>
+
+                    <div class="artist-card text-center p-6 rounded-lg"
+                         data-name="Neo_Glitch"
+                         data-img="https://placehold.co/300x300/0A192F/F000FF?text=Glitch"
+                         data-bio="Neo_Glitch 不創作藝術，他「破壞」藝術。透過操縱記憶體和數據，他創造出動態的 Glitch 作品，每一件都是獨一無二的數位意外。">
+                        <img src="https://placehold.co/150x150/0A192F/F000FF?text=Glitch" class="rounded-full w-36 h-36 mx-auto mb-4 border-4 border-gray-700">
+                        <h3 class="text-2xl font-bold font-orbitron">Neo_Glitch</h3>
+                        <p class="text-sm text-gray-400">[ 故障操縱者 ]</p>
+                    </div>
+
+                    <div class="artist-card text-center p-6 rounded-lg"
+                         data-name="Mech_Head"
+                         data-img="https://placehold.co/300x300/0A192F/00FFFF?text=Mech"
+                         data-bio="專注於 3D 建模和虛擬工程。Mech_Head 為 K7 區打造了最令人垂涎的載具和裝備。如果它不存在，他就把它建構出來。">
+                        <img src="https://placehold.co/150x150/0A192F/00FFFF?text=Mech" class="rounded-full w-36 h-36 mx-auto mb-4 border-4 border-gray-700">
+                        <h3 class="text-2xl font-bold font-orbitron">Mech_Head</h3>
+                        <p class="text-sm text-gray-400">[ 3D 建構師 ]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 (Data Port) -->
+    <footer class="py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-6">
+                <p class="font-orbitron text-lg mb-2">連接到 K7 數據端口</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="footer-led" title="X (Twitter)">X</a>
+                    <a href="#" class="footer-led" title="Discord">D</a>
+                    <a href="#" class="footer-led" title="Instagram">I</a>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <form class="flex justify-center max-w-sm mx-auto">
+                    <input type="email" placeholder="> 輸入你的加密位址..." class="flex-grow bg-gray-900 border border-cyan-700 text-cyan-400 px-4 py-2 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400" style="font-family: 'Roboto Mono', monospace;">
+                    <button type="submit" class="bg-cyan-600 text-black font-bold px-4 py-2 hover:bg-cyan-400 transition-colors">[ 訂閱 ]</button>
+                </form>
+            </div>
+
+            <p class="text-sm text-gray-600">&copy; 2025 NEO-SECTOR K7. // 數據流永不停止。</p>
+        </div>
+    </footer>
+
+    <!-- 全息檔案 彈窗 (Modal) -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="artist-modal" class="holographic-modal w-11/12 md:w-3/4 lg:w-1/2 max-w-4xl p-6 rounded-lg max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="modal-artist-name" class="text-3xl font-orbitron neon-text-cyan">[ 藝術家檔案 ]</h2>
+                <button id="modal-close-btn" class="text-4xl text-cyan-400 hover:text-white">&times;</button>
+            </div>
+            
+            <div class="md:flex md:space-x-6">
+                <img id="modal-artist-img" src="https://placehold.co/300x300/0A192F/CFFF00?text=Cypher" class="w-full md:w-1/3 h-auto object-cover rounded-lg border-2 border-cyan-700">
+                <div class="mt-4 md:mt-0 md:w-2/3">
+                    <p id="modal-artist-bio" class="text-lg text-gray-200">藝術家簡介...</p>
+                    
+                    <h4 class="font-orbitron text-lg text-pink-400 mt-6 mb-3">[ 街頭聲望 ]</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-400">[ X ]</a>
+                        <a href="#" class="text-gray-400 hover:text-pink-400">[ Discord ]</a>
+                        <a href="#" class="text-gray-400 hover:text-pink-400">[ Personal Site ]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. 載入畫面 ---
+            const loader = document.getElementById('loader');
+            const loaderText = document.getElementById('loader-text');
+            const textToType = "正在解密數據流... [NEO-SECTOR K7]";
+            let typingIndex = 0;
+
+            function typeLoaderText() {
+                if (typingIndex < textToType.length) {
+                    loaderText.textContent += textToType.charAt(typingIndex);
+                    typingIndex++;
+                    setTimeout(typeLoaderText, 60); // 打字速度
+                } else {
+                    loaderText.style.borderRight = "2px solid #00FFFF"; // 保持游標
+                    setTimeout(blinkCaret, 750);
+                }
+            }
+
+            function blinkCaret() {
+                loaderText.style.animation = "blink-caret .75s step-end infinite";
+            }
+
+            // 清空初始文字並開始打字
+            loaderText.textContent = '';
+            loaderText.style.animation = 'none'; // 暫停閃爍
+            
+            setTimeout(typeLoaderText, 500); // 延遲開始打字
+
+            // 載入完成後淡出
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500); // 等待淡出動畫完成
+                }, 3500); // 確保打字動畫播完
+            });
+
+            // --- 2. 數位雨 Canvas ---
+            const canvas = document.getElementById('matrix-canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+
+            const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+            const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const nums = '0123456789';
+            const alphabet = katakana + latin + nums;
+
+            const fontSize = 16;
+            const columns = canvas.width / fontSize;
+            const drops = [];
+
+            for (let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+
+            function drawMatrix() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#00FFFF'; // 青色
+                ctx.font = fontSize + 'px Roboto Mono';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+            
+            // 啟動數位雨動畫
+            const matrixInterval = setInterval(drawMatrix, 33);
+
+            // 視窗大小改變時重設
+            window.addEventListener('resize', () => {
+                canvas.height = window.innerHeight;
+                canvas.width = window.innerWidth;
+                // 重設 columns 和 drops (這裡簡化處理，實際應用可能需要更完整的重設)
+            });
+
+
+            // --- 3. Hero 區視差效果 ---
+            const heroContent = document.getElementById('hero-content');
+            window.addEventListener('mousemove', (e) => {
+                if (window.innerWidth > 1024) { // 只在桌機上啟用
+                    const moveX = (e.clientX - window.innerWidth / 2) * -0.01;
+                    const moveY = (e.clientY - window.innerHeight / 2) * -0.01;
+                    heroContent.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                }
+            });
+
+            // --- 4. 藝術家檔案彈窗 (Modal) ---
+            const modalOverlay = document.getElementById('modal-overlay');
+            const artistCards = document.querySelectorAll('.artist-card');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            
+            const modalArtistName = document.getElementById('modal-artist-name');
+            const modalArtistImg = document.getElementById('modal-artist-img');
+            const modalArtistBio = document.getElementById('modal-artist-bio');
+
+            artistCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // 獲取數據
+                    const name = card.getAttribute('data-name');
+                    const img = card.getAttribute('data-img');
+                    const bio = card.getAttribute('data-bio');
+                    
+                    // 填充內容
+                    modalArtistName.textContent = `[ 檔案: ${name} ]`;
+                    modalArtistImg.src = img;
+                    modalArtistBio.textContent = bio;
+                    
+                    // 顯示
+                    modalOverlay.classList.add('active');
+                });
+            });
+
+            // 關閉 Modal
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+            }
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
